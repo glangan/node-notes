@@ -1,5 +1,9 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1=title
+  ul
+    each note in notelist
+      li=note.key + ' : '
+        a(href="/notes/view?key=" + note.key) #{note.title}
+

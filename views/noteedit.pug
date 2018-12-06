@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  - var noteTitle = note ? note.title : ""
+  - var notebody = note ? note.body : ""
+  h1=title
+  form(method="post" action="/notes/save")
+    input(type="hidden" name="docreate" value=docreate ? "create" : "update")
+    if docreate
+      p Key: 
+        input(type="text" name="notekey" value="")
+    else
+      if note
+        p=notekey
+      input(type="hidden" name="notekey" value=note ? notekey : "")
+    
+    p Title: 
+      input(type="text" name="title" value=noteTitle)
+    textarea(name="body", cols="30", rows="10") #{notebody}
+    br
+    input(type="submit" value="Submit")

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  form(method="post" action="/notes/destroy/confirm")
+    input(type='hidden' name="notekey" value=note ? notekey : "")
+    p Delete #{note.title}?
+    input(type="submit" value="Delete")
+    a(href="/notes/view?key=" + note ? notekey : "") Cancel

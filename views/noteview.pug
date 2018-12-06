@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  if note
+    h3=note.title
+  if note
+    p=note.body
+  p="Key:" + notekey
+  if notekey
+    hr
+    p
+      a(href="/notes/destroy?key=" + notekey) Delete
+      a(href="/notes/edit?key=" + notekey) Edit
